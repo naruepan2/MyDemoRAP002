@@ -2,7 +2,9 @@
 @UI: {
   headerInfo: {
     typeName: 'Travel', 
-    typeNamePlural: 'Travels'
+    typeNamePlural: 'Travels',
+    imageUrl: 'Attachment',
+    description: { type: #STANDARD, value: 'TravelID' }
   }
 }
 annotate view ZC_RAP_NW_TRAVELTP_001 with
@@ -22,6 +24,9 @@ annotate view ZC_RAP_NW_TRAVELTP_001 with
     position: 10 , 
     label: ''
   } ]
+  @UI.selectionField: [{
+    position: 10
+   }]
   TravelID;
   
   @UI.lineItem: [ {
@@ -33,6 +38,9 @@ annotate view ZC_RAP_NW_TRAVELTP_001 with
     position: 20 , 
     label: ''
   } ]
+  @UI.selectionField: [{
+    position: 20
+   }]  
   AgencyID;
   
   @UI.lineItem: [ {
@@ -44,6 +52,9 @@ annotate view ZC_RAP_NW_TRAVELTP_001 with
     position: 30 , 
     label: ''
   } ]
+  @UI.selectionField: [{
+    position: 30
+   }]  
   CustomerID;
   
   @UI.lineItem: [ {

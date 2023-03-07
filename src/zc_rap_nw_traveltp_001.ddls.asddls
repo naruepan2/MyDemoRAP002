@@ -2,23 +2,39 @@
 @Metadata.allowExtensions: true
 @EndUserText.label: 'Projection View for ZI_RAP_NW_TRAVELTP_001'
 @ObjectModel.semanticKey: [ 'TravelID' ]
+@Search.searchable: true
+
 define root view entity ZC_RAP_NW_TRAVELTP_001
   provider contract transactional_query
   as projection on ZI_RAP_NW_TRAVELTP_001
 {
+      @Search.defaultSearchElement: true
+      @Search.fuzzinessThreshold: 0.9
   key TravelID,
-  AgencyID,
-  CustomerID,
-  BeginDate,
-  EndDate,
-  BookingFee,
-  TotalPrice,
-  CurrencyCode,
-  Description,
-  OverallStatus,
-  Attachment,
-  MimeType,
-  FileName,
-  LastChangedAt
-  
+      @Search.defaultSearchElement: true
+      @ObjectModel.text.element: ['AgencyID']
+      @Consumption.valueHelpDefinition: [{ entity : { name: '/DMO/I_Agency', element: 'AgencyID' } }]
+      AgencyID,
+      _Agency.Name              as AgencyName,
+      @Search.defaultSearchElement: true
+      @ObjectModel.text.element: ['CustomerName']
+      @Consumption.valueHelpDefinition: [{ entity: { name: '/DMO/I_Customer', element: 'CustomerID' } }]
+      CustomerID,
+      _Customer.LastName        as CustomerName,
+      BeginDate,
+      EndDate,
+      BookingFee,
+      TotalPrice,
+      @Consumption.valueHelpDefinition: [{ entity: {name: 'I_Currency', element: 'Currency' } }]
+      CurrencyCode,
+      Description,
+      @ObjectModel.text.element: ['OverallStatusText']
+      @Consumption.valueHelpDefinition: [{ entity: {name: '/DMO/I_Overall_Status_VH', element: 'OverallStatus' } }]
+      OverallStatus,
+      _OverallStatus._Text.Text as OverallStatusText : localized,
+      Attachment,
+      MimeType,
+      FileName,
+      LastChangedAt
+
 }

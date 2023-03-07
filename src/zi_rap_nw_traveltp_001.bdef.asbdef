@@ -1,0 +1,58 @@
+managed implementation in class ZBP_RAP_NW_TRAVELTP_001 unique;
+strict ( 2 );
+with draft;
+
+define behavior for ZI_RAP_NW_TRAVELTP_001 alias Travel
+persistent table zrap_nw_atrav001
+draft table ZRAP_NW_DTRAV001
+etag master LastChangedAt
+lock master total etag LocalLastChangedAt
+authorization master( global )
+
+{
+  field ( mandatory : create )
+   TravelID;
+
+  field ( readonly )
+   CreatedAt,
+   CreatedBy,
+   LocalLastChangedAt,
+   LastChangedAt,
+   LastChangedBy;
+
+  field ( readonly : update )
+   TravelID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Edit;
+  draft action Activate;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZRAP_NW_ATRAV001
+  {
+    TravelID = travel_id;
+    AgencyID = agency_id;
+    CustomerID = customer_id;
+    BeginDate = begin_date;
+    EndDate = end_date;
+    BookingFee = booking_fee;
+    TotalPrice = total_price;
+    CurrencyCode = currency_code;
+    Description = description;
+    OverallStatus = overall_status;
+    Attachment = attachment;
+    MimeType = mime_type;
+    FileName = file_name;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}

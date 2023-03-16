@@ -1,7 +1,7 @@
 @Metadata.layer: #CUSTOMER
 @UI: {
   headerInfo: {
-    typeName: 'Travel', 
+    typeName: 'Travel',
     typeNamePlural: 'Travels',
     imageUrl: 'Attachment',
     description: { type: #STANDARD, value: 'TravelID' }
@@ -10,163 +10,171 @@
 annotate view ZC_RAP_NW_TRAVELTP_001 with
 {
   @UI.facet: [ {
-    id: 'idIdentification', 
-    type: #IDENTIFICATION_REFERENCE, 
-    label: 'Travel', 
-    position: 10 
+    id: 'idIdentification',
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'Travel',
+    position: 10
   } ]
+
+
   @UI.lineItem: [ {
-    position: 10 , 
-    importance: #MEDIUM, 
+    position: 10 ,
+    importance: #MEDIUM,
     label: ''
   } ]
   @UI.identification: [ {
-    position: 10 , 
+    position: 10 ,
     label: ''
   } ]
   @UI.selectionField: [{
     position: 10
    }]
   TravelID;
-  
+
   @UI.lineItem: [ {
-    position: 20 , 
-    importance: #MEDIUM, 
+    position: 20 ,
+    importance: #MEDIUM,
     label: ''
   } ]
   @UI.identification: [ {
-    position: 20 , 
+    position: 20 ,
     label: ''
   } ]
   @UI.selectionField: [{
     position: 20
-   }]  
+   }]
   AgencyID;
-  
+
   @UI.lineItem: [ {
-    position: 30 , 
-    importance: #MEDIUM, 
+    position: 30 ,
+    importance: #MEDIUM,
     label: ''
   } ]
   @UI.identification: [ {
-    position: 30 , 
+    position: 30 ,
     label: ''
   } ]
   @UI.selectionField: [{
     position: 30
-   }]  
+   }]
   CustomerID;
-  
+
   @UI.lineItem: [ {
-    position: 40 , 
-    importance: #MEDIUM, 
+    position: 40 ,
+    importance: #MEDIUM,
     label: ''
   } ]
   @UI.identification: [ {
-    position: 40 , 
+    position: 40 ,
     label: ''
   } ]
   BeginDate;
-  
+
   @UI.lineItem: [ {
-    position: 50 , 
-    importance: #MEDIUM, 
+    position: 50 ,
+    importance: #MEDIUM,
     label: ''
   } ]
   @UI.identification: [ {
-    position: 50 , 
+    position: 50 ,
     label: ''
   } ]
   EndDate;
-  
+
   @UI.lineItem: [ {
-    position: 60 , 
-    importance: #MEDIUM, 
+    position: 60 ,
+    importance: #MEDIUM,
     label: ''
   } ]
   @UI.identification: [ {
-    position: 60 , 
+    position: 60 ,
     label: ''
   } ]
   BookingFee;
-  
-  @UI.lineItem: [ {
-    position: 70 , 
-    importance: #MEDIUM, 
-    label: ''
-  } ]
+
+  //  @UI.lineItem: [ {
+  //    position: 70 ,
+  //    importance: #MEDIUM,
+  //    label: ''
+  //  } ]
   @UI.identification: [ {
-    position: 70 , 
+    position: 70 ,
     label: ''
   } ]
   TotalPrice;
-  
-  @UI.lineItem: [ {
-    position: 80 , 
-    importance: #MEDIUM, 
-    label: ''
-  } ]
+
+  //  @UI.lineItem: [ {
+  //    position: 80 ,
+  //    importance: #MEDIUM,
+  //    label: ''
+  //  } ]
   @UI.identification: [ {
-    position: 80 , 
+    position: 80 ,
     label: ''
   } ]
   CurrencyCode;
-  
-  @UI.lineItem: [ {
-    position: 90 , 
-    importance: #MEDIUM, 
-    label: ''
-  } ]
+
+  //  @UI.lineItem: [ {
+  //    position: 90 ,
+  //    importance: #MEDIUM,
+  //    label: ''
+  //  } ]
   @UI.identification: [ {
-    position: 90 , 
+    position: 90 ,
     label: ''
   } ]
   Description;
-  
-  @UI.lineItem: [ {
-    position: 100 , 
-    importance: #MEDIUM, 
-    label: ''
-  } ]
-  @UI.identification: [ {
-    position: 100 , 
-    label: ''
-  } ]
+
+  @UI: {
+  lineItem:       [ { position: 100, importance: #HIGH },
+                    { type: #FOR_ACTION, dataAction: 'copyTravel', label: 'Copy Travel' },
+                    { type: #FOR_ACTION, dataAction: 'acceptTravel', label: 'Accept Travel' },
+                    { type: #FOR_ACTION, dataAction: 'rejectTravel', label: 'Reject Travel' }
+       ],
+  identification: [ { position: 100 },
+                    { type: #FOR_ACTION, dataAction: 'deductDiscount', label: 'Deduct Discount' },
+                    { type: #FOR_ACTION, dataAction: 'acceptTravel', label: 'Accept Travel' },
+                    { type: #FOR_ACTION, dataAction: 'rejectTravel', label: 'Reject Travel' }
+       ],
+    textArrangement: #TEXT_ONLY
+  }
   OverallStatus;
-  
-  @UI.lineItem: [ {
-    position: 110 , 
-    importance: #MEDIUM, 
-    label: ''
-  } ]
+
+  //  @UI.lineItem: [ {
+  //    position: 110 ,
+  //    importance: #MEDIUM,
+  //    label: ''
+  //  } ]
   @UI.identification: [ {
-    position: 110 , 
+    position: 110 ,
     label: ''
   } ]
   Attachment;
-  
-  @UI.lineItem: [ {
-    position: 120 , 
-    importance: #MEDIUM, 
-    label: ''
-  } ]
-  @UI.identification: [ {
-    position: 120 , 
-    label: ''
-  } ]
+
+  //  @UI.lineItem: [ {
+  //    position: 120 ,
+  //    importance: #MEDIUM,
+  //    label: ''
+  //  } ]
+  //  @UI.identification: [ {
+  //    position: 120 ,
+  //    label: ''
+  //  } ]
+  @UI.hidden: true
   MimeType;
-  
-  @UI.lineItem: [ {
-    position: 130 , 
-    importance: #MEDIUM, 
-    label: ''
-  } ]
-  @UI.identification: [ {
-    position: 130 , 
-    label: ''
-  } ]
+
+  //  @UI.lineItem: [ {
+  //    position: 130 ,
+  //    importance: #MEDIUM,
+  //    label: ''
+  //  } ]
+  //  @UI.identification: [ {
+  //    position: 130 ,
+  //    label: ''
+  //  } ]
+  @UI.hidden: true
   FileName;
-  
+
   @UI.hidden: true
   LastChangedAt;
 }
